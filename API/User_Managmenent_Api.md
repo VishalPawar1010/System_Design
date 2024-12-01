@@ -449,34 +449,3 @@ The security of the User Management API is a critical aspect of its design. The 
 ## 7. Conclusion
 
 In this tutorial, we have developed a User Management API using Spring Boot, adhering to best practices in API design. By following the API-first approach, we ensured that our API is user-centric, scalable, and maintainable. This API can serve as a foundation for more complex applications and can be extended with additional features as needed.
-
-## Advantages and Disadvantages of REST API
-
-### Advantages of REST API
-
-1. **Statelessness**: Each request from a client contains all the information needed to process the request, which simplifies server design and improves scalability.
-2. **Cacheable**: Responses can be cached, improving performance and reducing server load.
-3. **Uniform Interface**: REST APIs use standard HTTP methods (GET, POST, PUT, DELETE), making them easy to understand and use.
-4. **Separation of Concerns**: REST APIs separate the client and server, allowing for independent development and deployment.
-5. **Wide Adoption**: REST is widely used and supported by many frameworks and tools, making it easier to find resources and community support.
-
-### Disadvantages of REST API
-
-1. **Over-fetching and Under-fetching**: Clients may receive more data than needed (over-fetching) or may need to make multiple requests to get all the required data (under-fetching).
-2. **Versioning**: Managing different versions of an API can become complex as the application evolves.
-3. **Complex Queries**: Complex queries may require multiple endpoints, leading to increased complexity in client-side logic.
-4. **Limited Flexibility**: The structure of the response is fixed, which may not always align with the needs of the client.
-
-## Why Prefer GraphQL Over REST
-
-GraphQL offers several advantages over REST, particularly in scenarios where flexibility and efficiency are paramount:
-
-1. **Single Endpoint**: Unlike REST, which typically has multiple endpoints for different resources, GraphQL uses a single endpoint to handle all requests. This simplifies the API structure.
-2. **Client-Specified Queries**: Clients can specify exactly what data they need, reducing over-fetching and under-fetching issues. This allows for more efficient data retrieval.
-3. **Strongly Typed Schema**: GraphQL APIs are defined by a schema, which provides clear documentation and validation of the data structure.
-4. **Real-time Capabilities**: GraphQL supports subscriptions, allowing clients to receive real-time updates when data changes.
-5. **Versioning**: GraphQL APIs can evolve without versioning, as clients can request only the fields they need.
-
-### Example of GraphQL Implementation
-
-In the provided `GraphQLController.java`, we can see how GraphQL is implemented to retrieve roles from the database:
