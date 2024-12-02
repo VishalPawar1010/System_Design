@@ -1,4 +1,3 @@
-
 # Advantages and Disadvantages of REST API
 
 ## Advantages of REST API
@@ -34,18 +33,18 @@ GraphQL offers several advantages over REST, particularly in scenarios where fle
 4. **Learning Curve**: Developers familiar with REST may face a learning curve when transitioning to GraphQL, as it requires a different approach to API design and usage.
 5. **Security Concerns**: The flexibility of GraphQL can expose the API to security risks, such as denial-of-service attacks through complex queries.
 
-## Example of GraphQL Implementation
+## Demo example of GraphQL Implementation
 
-### GraphQLController.java
+### [GraphQLController.java](https://github.com/VishalPawar1010/SpringBoot_Angular_FullStackWebApp/blob/develop/UmsApp/spring-boot-App/src/main/java/com/growth10Mindset/admin/controller/GraphQLController.java)
 
 ```java
 
 @Controller
 public class GraphQLController {
-    
+
     @Autowired
     private RoleRepository roleRepository;
-    
+
     @QueryMapping("getAllRoles")
     public List<Role> getAllRoles() {
         List<Role> roles = roleRepository.findAll();
@@ -56,18 +55,18 @@ public class GraphQLController {
 }
 ```
 
-### schema.graphqls
+### [schema.graphqls](https://github.com/VishalPawar1010/SpringBoot_Angular_FullStackWebApp/blob/develop/UmsApp/spring-boot-App/src/main/resources/graphql/schema.graphqls)
 
 ```graphql
 type Query {
-    getAllRoles: [Role]
-    getRole(roleID: Int): Role
+  getAllRoles: [Role]
+  getRole(roleID: Int): Role
 }
 
 type Role {
-    id: ID!
-    name: String
-    description: String
+  id: ID!
+  name: String
+  description: String
 }
 ```
 

@@ -8,7 +8,7 @@ NOTE: For reference, please visit the following GitHub repository: https://githu
 
 Before we start coding, it's essential to define the requirements of our API.
 
-## 1. API Purpose
+### 1. API Purpose
 
 The User Management API is designed to facilitate the management of user accounts within an application. It allows for the creation, retrieval, updating, and deletion of user information, as well as handling user authentication and password management.
 
@@ -20,21 +20,21 @@ The User Management API is designed to facilitate the management of user account
 
 NOTE: This tutorial will focus exclusively on CRUD operations. For additional functionalities, please refer to the classes in the repository.
 
-## 2. User Roles
+### 2. User Roles
 
 The API will cater to different user roles, including:
 
 - **Administrators**: Have full access to manage user accounts, including creating, updating, and deleting users.
 - **Regular Users**: Can manage their own accounts, including updating personal information and changing passwords.
 
-## 3. Information Flow
+### 3. Information Flow
 
 The API will handle the following types of data:
 
 - **User Data**: Information such as email, password, first name, last name, and profile images.
 - **Authentication Tokens**: JWT or similar tokens for user authentication.
 
-## 4. Security Improvements
+### 4. Security Improvements
 
 To ensure the security of the API, the following measures will be implemented:
 
@@ -42,7 +42,7 @@ To ensure the security of the API, the following measures will be implemented:
 - **Authorization**: Implement role-based access control to restrict access to certain endpoints based on user roles.
 - **Input Validation**: Validate all incoming data to prevent SQL injection and other attacks.
 
-## 5. Error and Exception Handling
+### 5. Error and Exception Handling: [refer this folder](https://github.com/VishalPawar1010/SpringBoot_Angular_FullStackWebApp/tree/develop/UmsApp/spring-boot-App/src/main/java/com/growth10Mindset/admin/exceptions)
 
 The API will provide standardized error responses to ensure that clients can handle errors gracefully. Key aspects of error handling include:
 
@@ -65,11 +65,13 @@ In addition to the primary stack, we also developed a demo API using **Node.js**
 
 This combination of technologies ensures that our User Management API is not only efficient but also scalable and maintainable, catering to various user needs and future enhancements.
 
-NOTE: In the document [/API/Api_Design.md], Steps 3, 4, and 5 in the section on Stages of API Design can be considered interchangeable according design analysis.
+NOTE: In the document [API_Design](/API/Api_Design.md), Steps 3, 4, and 5 in the section on Stages of API Design can be considered interchangeable according design analysis.
 
 ### 1. Setting Up the Project
 
 We will use Spring Boot to create our API. Ensure you have the following dependencies in your `pom.xml`([`pom.xml`](https://github.com/VishalPawar1010/SpringBoot_Angular_FullStackWebApp/blob/develop/UmsApp/spring-boot-App/pom.xml)):
+
+![API_example](./api_rest.png)
 
 ## 3. Designing the API Endpoints
 
@@ -85,7 +87,7 @@ Following the **Outside-In** approach, we will design our API endpoints based on
 
 Below is a structured explanation of the data model and contracts based on the provided [User.java](https://github.com/VishalPawar1010/SpringBoot_Angular_FullStackWebApp/blob/develop/UmsApp/spring-boot-App/src/main/java/com/growth10Mindset/admin/entity/User.java) and [UserService.java](https://github.com/VishalPawar1010/SpringBoot_Angular_FullStackWebApp/blob/develop/UmsApp/spring-boot-App/src/main/java/com/growth10Mindset/admin/service/UserService.java) file
 
-## 1. Data Model
+### 1. Data Model
 
 The data model for the User Management API is represented by the `User` entity class. This class defines the structure of the user data that will be stored in the database. We have added validations to prevent incorrect data from being stored in the database. Below are the key attributes and their annotations:
 
@@ -146,7 +148,7 @@ public class User {
 - **gender**: User's gender.
 - **enabled**: Indicates whether the user account is active.
 
-## 2. Contracts
+### 2. Contracts
 
 The contracts for the User Management API are defined in the `UserService` interface. This interface outlines the operations that can be performed on the `User` entity.
 
@@ -166,7 +168,7 @@ public interface UserService {
 }
 ```
 
-### Key Methods
+#### Key Methods
 
 - **getAllUsers()**: Retrieves a list of all users.
 - **getUserById(Integer id)**: Retrieves a user by their unique ID.
@@ -179,7 +181,7 @@ public interface UserService {
 
 Below is an explanation of the Data Access Layer and Business Logic Layer for the User Management API, based on the provided code snippets for [UserRepository.java](https://github.com/VishalPawar1010/SpringBoot_Angular_FullStackWebApp/blob/develop/UmsApp/spring-boot-App/src/main/java/com/growth10Mindset/admin/repo/UserRepository.java) and [UserServiceImpl.java](https://github.com/VishalPawar1010/SpringBoot_Angular_FullStackWebApp/blob/develop/UmsApp/spring-boot-App/src/main/java/com/growth10Mindset/admin/service/UserServiceImpl.java).
 
-## 1. Data Access Layer
+### 1. Data Access Layer
 
 The Data Access Layer (DAL) is responsible for interacting with the database. In this API, the `UserRepository` interface serves as the DAL. It extends the `JpaRepository` interface provided by Spring Data JPA, which simplifies data access and manipulation.
 
@@ -305,7 +307,7 @@ public class UserServiceImpl implements UserService {
 
 The Data Access Layer (`UserRepository`) and Business Logic Layer (`UserServiceImpl`) work together to provide a robust and maintainable structure for the User Management API. The repository handles all interactions with the database, while the service implements the business rules and logic necessary for managing user data effectively.
 
-## 4. Implementing the UserController
+## 6. Create Endpoints: Implementing the UserController
 
 Now, let's implement the [UserController](https://github.com/VishalPawar1010/SpringBoot_Angular_FullStackWebApp/blob/develop/UmsApp/spring-boot-App/src/main/java/com/growth10Mindset/admin/controller/UserController.java) class, which will handle the API requests. Below is the complete implementation:
 
@@ -364,7 +366,7 @@ public class UserController {
 }
 ```
 
-## 6. Testing the API
+## 7. Testing the API
 
 Once the implementation is complete, it's crucial to test the API endpoints to ensure they work as expected. You can use tools like Postman or curl to send requests to your API and verify the responses.
 
@@ -432,7 +434,7 @@ public class UserControllerTests {
 
 These tests cover the basic functionality of the `UserController`, ensuring that the API behaves as expected when interacting with the `UserService`. You can add more tests for other methods in the controller to ensure comprehensive coverage.
 
-## 6. Security Overview
+## 8. Security Overview
 
 The security of the User Management API is a critical aspect of its design. The following components contribute to the overall security framework:
 
@@ -446,6 +448,6 @@ The security of the User Management API is a critical aspect of its design. The 
 
 - **Email Verification**: The API includes functionality for sending verification emails, which can be used to confirm user accounts and enhance security.
 
-## 7. Conclusion
+## Conclusion
 
 In this tutorial, we have developed a User Management API using Spring Boot, adhering to best practices in API design. By following the API-first approach, we ensured that our API is user-centric, scalable, and maintainable. This API can serve as a foundation for more complex applications and can be extended with additional features as needed.
